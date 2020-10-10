@@ -13,16 +13,17 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create
-    @post = Post.create(post_params)
-    if @post.save
-      flash[:success] = 'Статья создана!'
-      redirect_to @post
-    else
-      flash.now[:error] = 'Ошибка!'
-      render 'new'
+
+    def create
+      @post = current_user.posts.new(post_params)
+      if @post.save
+        flash[:success] = 'Статья создана!'
+        redirect_to @post
+      else
+        flash.now[:error] = 'Статья не создана'
+        render :new
+      end
     end
-  end
 
 
   def edit

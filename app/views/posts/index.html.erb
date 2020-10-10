@@ -1,7 +1,7 @@
 <h1>inddex</h1>
 
 <% @posts.each do |p| %>
-  <p>id: <%= p.id %></p>
+  <p>user: <%= p.user.name %></p>
   <p>title: <%= link_to p.title, post_path(p) %></p>
   <p>body: <%= p.body %></p>
   <small>
