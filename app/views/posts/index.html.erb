@@ -1,0 +1,12 @@
+<h1>inddex</h1>
+
+<% @posts.each do |p| %>
+  <p>id: <%= p.id %></p>
+  <p>title: <%= link_to p.title, post_path(p) %></p>
+  <p>body: <%= p.body %></p>
+  <small>
+    <%= link_to 'удалить', post_path(p), method: :delete  %>
+    <%= link_to 'изменить', edit_post_path(p)  %>
+  </small>
+  <hr>
+<% end %>
