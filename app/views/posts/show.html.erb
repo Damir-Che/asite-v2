@@ -1,5 +1,8 @@
 <h1>show</h1>
 
-<p>user: <%= p.user.name %></p>
+<p>user: <%= @post.user.name %></p>
 <p>title: <%= @post.title %></p>
 <p>body: <%= @post.body %></p>
+<% if @post.image.present? %>
+  <%= image_tag @post.image.variant(resize: "200x200") %>
+<%end %>

@@ -4,6 +4,10 @@
   <p>user: <%= p.user.name %></p>
   <p>title: <%= link_to p.title, post_path(p) %></p>
   <p>body: <%= p.body %></p>
+  <% if p.image.present? %>
+    <%= image_tag p.image.variant(resize: "100x100") %>
+  <%end %>
+  <br>
   <small>
     <%= link_to 'удалить', post_path(p), method: :delete  %>
     <%= link_to 'изменить', edit_post_path(p)  %>
