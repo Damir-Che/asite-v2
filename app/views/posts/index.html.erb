@@ -1,6 +1,7 @@
 <h1>inddex</h1>
 
 <% @posts.each do |p| %>
+  <p>id: <%= p.id %></p>
   <p>user: <%= p.user.name %></p>
   <p>title: <%= link_to p.title, post_path(p) %></p>
   <p>body: <%= p.body.html_safe %></p> <!--.html.save для trix -->
@@ -12,5 +13,7 @@
     <%= link_to 'удалить', post_path(p), method: :delete  %>
     <%= link_to 'изменить', edit_post_path(p)  %>
   </small>
+  <p><%= link_to 'Like', post_likes_path(p), method: :post, class: 'like like_posts p-3', id: 'like' %><%=  p.likes.count %></p>
+
   <hr>
 <% end %>
