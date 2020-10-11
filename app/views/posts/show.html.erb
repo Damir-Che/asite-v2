@@ -6,3 +6,14 @@
 <% if @post.image.present? %>
   <%= image_tag @post.image.variant(resize: "200x200") %>
 <%end %>
+
+<% if user_signed_in? %>
+  <%= render 'comments/form' %>
+<%end %>
+
+<h3 >Комментарии <%= @post.comments.count %></h3>
+<div>
+  <% @post.comments.each do |cmt| %>
+    <%= render 'comments/comment', comment: cmt %>
+  <%end %>
+</div>
