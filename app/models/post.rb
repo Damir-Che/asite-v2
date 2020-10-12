@@ -4,4 +4,5 @@ class Post < ApplicationRecord
   has_one_attached :image #ActiveStorage
   has_many :comments
   has_many :likes
+  acts_as_taggable
 end

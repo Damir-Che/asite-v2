@@ -1,12 +1,22 @@
 <h1>inddex</h1>
 
+<!--для отображение Tags -->
+  <div id="tag_cloud">
+    <% tag_cloud Post.tag_counts, %[s m l] do |tag, css_class| %>
+      <small><%= link_to tag.name, tag_path(tag.name), class: css_class %></small>
+    <% end %>
+  </div>
+  <hr>
+
+
 <% @posts.each do |p| %>
   <p>id: <%= p.id %></p>
   <p>user: <%= p.user.name %></p>
   <p>title: <%= link_to p.title, post_path(p) %></p>
+  <p>Tags: <%= raw p.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p> <!-- для tags -->
   <p>body: <%= p.body.html_safe %></p> <!--.html.save для trix -->
   <% if p.image.present? %>
-    <%= image_tag p.image.variant(resize: "100x100") %>
+    <%= image_tag p.image.variant(resize: "100x100") %><!-- для ActivaStorage -->
   <%end %>
   <br>
   <small>

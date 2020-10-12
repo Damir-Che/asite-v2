@@ -6,6 +6,8 @@ gem 'devise'
 gem "mini_magick"
 gem 'trix'
 gem 'trix-gem'
+gem 'acts-as-taggable-on', '~> 6.0'
+
 
 
 

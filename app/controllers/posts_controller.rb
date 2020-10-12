@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]) # для отображение тэгов
+    else
+      @posts = Post.all
+    end
   end
 
   def show
@@ -51,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image )
+    params.require(:post).permit(:title, :body, :image, :tag_list )
   end
 
   def set_post

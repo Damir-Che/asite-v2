@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :comments
     resources :likes
   end
+  get 'tags/:tag', to: 'posts#index', as: :tag
 end
