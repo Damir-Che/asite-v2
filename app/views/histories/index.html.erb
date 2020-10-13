@@ -1,0 +1,14 @@
+<h1>History-index</h1>
+
+<% @histories.each do |h| %>
+    <p>id: <%= h.id %></p>
+    <p>title: <%= link_to h.title, history_path(h) %></p>
+<!--  <br>-->
+  <small>
+    <%= link_to 'удалить', history_path(h), method: :delete  %>
+    <%= link_to 'изменить', edit_history_path(h)  %>
+  </small>
+    <p>body: <%= h.body.html_safe %></p>
+    <p>source<%= h.source %></p>
+    <hr>
+<%end %>
