@@ -2,4 +2,7 @@
 
 <p>title: <%= @history.title %></p>
 <p>body: <%= @history.body.html_safe %></p>
+<% if @history.image.present? %>
+  <%= image_tag @history.image.variant(resize: "200x200") %>
+<%end %>
 <p>source: <%= @history.source %></p>

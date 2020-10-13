@@ -8,10 +8,10 @@
     <%= f.label :body %>
     <%= f.trix_editor :body, class: 'editor' %>
   </div>
-<!--  <div class="form-group">-->
-    <%#= f.label :image %>
-    <%#= f.file_field :image %>
-<!--  </div>-->
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
   <div class="form-group">
     <%= f.label :source %>
     <%= f.text_field :source %>
