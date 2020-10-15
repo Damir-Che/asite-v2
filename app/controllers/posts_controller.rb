@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]) # для отображение тэгов
     else
-      @posts = Post.all
+      @posts = Post.published
     end
   end
 
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :tag_list )
+    params.require(:post).permit(:title, :body, :image, :tag_list, :status )
   end
 
   def set_post

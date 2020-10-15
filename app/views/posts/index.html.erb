@@ -10,7 +10,7 @@
 
 
 <% @posts.each do |p| %>
-  <p>id: <%= p.id %></p>
+  <p>id: <%= p.id %> (<small> status: <%= p.status %></small>)</p>
   <p>user: <%= p.user.name %></p>
   <p>title: <%= link_to p.title, post_path(p) %></p>
   <p>Tags: <%= raw p.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p> <!-- для tags -->

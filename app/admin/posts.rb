@@ -1,6 +1,6 @@
 ActiveAdmin.register Post do
 
-  permit_params :user_id, :title, :body, :image, :tag_list, :image
+  permit_params :user_id, :title, :body, :image, :tag_list, :image, :status
 
   form do |f|
     f.semantic_errors

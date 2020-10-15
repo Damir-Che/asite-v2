@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
   acts_as_taggable
+  enum status: [:on_moderetion, :published, :hidden] #enum
 end
