@@ -8,7 +8,9 @@
 <%end %>
 
 <% if user_signed_in? %>
-  <%= render 'comments/form' %>
+  <% if current_user.active? %>
+   <%= render 'comments/form' %>
+  <%end %>
 <%end %>
 
 <h3 >Комментарии <%= @post.comments.count %></h3>
