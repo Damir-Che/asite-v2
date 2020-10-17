@@ -8,6 +8,9 @@ gem 'trix'
 gem 'trix-gem'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'activeadmin'
+gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'jquery-rails'
+
 
 
 

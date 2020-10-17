@@ -13,9 +13,11 @@
 
     <%= link_to 'все статьи | ', posts_path %>
     <%= link_to 'истории | ', histories_path %>
-    <% if current_user.active? %>
-      <%= link_to 'новая статья | ', new_post_path %>
-      <%= link_to 'добавить историю', new_history_path %>
+    <% if user_signed_in? %>
+      <% if current_user.active? %>
+        <%= link_to 'новая статья | ', new_post_path %>
+        <%= link_to 'добавить историю', new_history_path %>
+      <%end %>
     <%end %>
 
     <% if user_signed_in? %>
