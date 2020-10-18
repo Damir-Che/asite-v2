@@ -4,9 +4,10 @@ class PostsController < ApplicationController
 
   def index
     if params[:tag]
-      @posts = Post.tagged_with(params[:tag]) # для отображение тэгов
+      @posts = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 2) # для отображение тэгов
     else
-      @posts = Post.published
+      @posts = Post.paginate(page: params[:page], per_page: 2)
+      @posts = @posts.published
     end
   end
 

@@ -10,6 +10,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'activeadmin'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
 
 

@@ -15,9 +15,9 @@
   <p>title: <%= link_to p.title, post_path(p) %></p>
   <p>Tags: <%= raw p.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p> <!-- для tags -->
   <p>body: <%= p.body.html_safe %></p> <!--.html.save для trix -->
-  <% if p.image.present? %>
-    <%= image_tag p.image.variant(resize: "100x100") %><!-- для ActivaStorage -->
-  <%end %>
+  <%# if p.image.present? %>
+<!--    <%#= image_tag p.image.variant(resize: "100x100") %><!-- для ActivaStorage -->-->
+  <%#end %>
   <br>
   <small>
     <%= link_to 'удалить', post_path(p), method: :delete  %>
@@ -28,3 +28,5 @@
 
   <hr>
 <% end %>
+
+<%= will_paginate @posts %>

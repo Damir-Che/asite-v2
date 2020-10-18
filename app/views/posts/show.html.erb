@@ -3,9 +3,9 @@
 <p>user: <%= @post.user.name %></p>
 <p>title: <%= @post.title %></p>
 <p>body: <%= @post.body.html_safe %></p><!-- .html_safe - для trix-->
-<% if @post.image.present? %>
-  <%= image_tag @post.image.variant(resize: "200x200") %>
-<%end %>
+<%# if @post.image.present? %>
+  <%#= image_tag @post.image.variant(resize: "200x200") %>
+<%#end %>
 
 <% if user_signed_in? %>
   <% if current_user.active? %>
