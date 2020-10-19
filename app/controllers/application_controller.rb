@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password)}
   end
 
+  
+  #вывод ошибок для пользователя
+  def render_404
+    render file: 'public/404.html', status: 404
+  end
+
 end

@@ -6,8 +6,8 @@ class PostsController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 2) # для отображение тэгов
     else
-      @posts = Post.paginate(page: params[:page], per_page: 2)
-      @posts = @posts.published
+      @posts = Post.paginate(page: params[:page], per_page: 2) #gem will_paginate
+      @posts = @posts.published #выводить посты с status(published)
     end
   end
 
@@ -59,8 +59,11 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body, :image, :tag_list, :status )
   end
 
+
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.where(id: params[:id]).first
+    render_404 unless @post # выовд 404 если не получим :id
+
   end
 
 end
